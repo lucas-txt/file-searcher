@@ -1,3 +1,4 @@
 .vs
 .vscode
 file-searcher/bin
+file-searcher/obj
