@@ -22,12 +22,12 @@ namespace Base {
       Dictionary<string, Func<SearchSettings, string[], int, SearchSettings>> commands = new Dictionary<string, Func<SearchSettings, string[], int, SearchSettings>>()
       {
         {"-d", (ss, ar, p) => {
-            ss.baseDir = ar[p + 1];
+            ss.baseDir = ar[p + 1]; 
             return ss;
           }},
         {"-f", (ss, ar, p) => {
-          ss.nameForFind = ar[p + 1];
-          return ss;
+            ss.nameForFind = ar[p + 1];
+            return ss;
         }},
         {"--not-case-distinction", (ss, ar, p) => {
             ss.searchParameters.MatchCasing = MatchCasing.CaseInsensitive;
@@ -49,8 +49,8 @@ namespace Base {
           ss.itemTypeToSearch = ItemOptions.folders;
           return ss;
         }},
-        {"--find-all", (ss, ar, p) => {
-          ss.itemTypeToSearch = ItemOptions.all;
+        {"--find-files", (ss, ar, p) => {
+          ss.itemTypeToSearch = ItemOptions.files;
           return ss;
         }}
       };
@@ -78,7 +78,7 @@ namespace Base {
 
     public string[] blockedDirectories { get; set; } = new string[]{};
 
-    public ItemOptions itemTypeToSearch = ItemOptions.files;
+    public ItemOptions itemTypeToSearch = ItemOptions.all;
 
     public EnumerationOptions searchParameters { get; set; } = new EnumerationOptions() {
       IgnoreInaccessible = true, 
